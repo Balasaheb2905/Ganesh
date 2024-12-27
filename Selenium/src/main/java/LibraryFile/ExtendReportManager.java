@@ -1,0 +1,58 @@
+package LibraryFile;
+
+import java.io.IOException;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class ExtendReportManager implements ITestListener{
+
+	public void onTestStart(ITestResult result) {
+		
+		System.out.println(" onTestStart");
+	    
+	  }
+	 
+	public void onTestSuccess(ITestResult result) {
+		System.out.println(" onTestSuccess");
+	  }
+
+	 
+	public void onTestFailure(ITestResult result) {
+		System.out.println("onTestFailure ");
+		try {
+			String Image=new UtilityClass().captureScreenshot(result.getName());
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	  }
+	 
+	public void onTestSkipped(ITestResult result) {
+		System.out.println("onTestSkipped ");
+	  }
+
+	 
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		System.out.println("onTestFailedButWithinSuccessPercentage ");
+	  }
+
+	  
+	public void onTestFailedWithTimeout(ITestResult result) {
+	    onTestFailure(result);
+	    System.out.println("onTestFailedWithTimeout ");
+	  }
+
+	  
+	public void onStart(ITestContext context) {
+		System.out.println("onStart ");
+	  }
+
+	  
+	public void onFinish(ITestContext context) {
+		System.out.println(" onFinish");
+	  }
+}
