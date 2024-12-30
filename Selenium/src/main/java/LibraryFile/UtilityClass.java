@@ -26,4 +26,12 @@ public class UtilityClass extends BaseClass{
 		FileHandler.copy(src, dest);
 		return filePath;
 	}
+	public static void handleAlert()
+	{
+		
+	}
+	public static void keyboardActions()
+	{
+		
+	}
 }
